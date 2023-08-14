@@ -1,14 +1,9 @@
-require 'pry'
 # @param {String[]} tokens
 # @return {Integer}
 def eval_rpn(tokens)
   stack = []
 
-  tokens.each do |token|
-    size = stack.size
-    
-    binding.pry
-
+  tokens.each do |token|    
     case token
     when '+'
       stack << (stack.pop) + (stack.pop)
@@ -28,6 +23,3 @@ def eval_rpn(tokens)
 
   stack.last
 end
-
-tokens = ["2","1","+","3","*"]
-p eval_rpn(tokens)
